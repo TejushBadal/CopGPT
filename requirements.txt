@@ -1,3 +1,6 @@
 openai
 PyPDF2
 langchain
+chromadb
+tiktoken
+unstructured
