@@ -36,9 +36,9 @@ else:
     index = VectorstoreIndexCreator().from_loaders([loader])
 
 chain = ConversationalRetrievalChain.from_llm(
-  llm=ChatOpenAI(model="gpt-3.5-turbo"),
-  retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
-  verbose=True,
+                                              llm=ChatOpenAI(model="gpt-3.5-turbo"),
+                                              retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
+                                              verbose=True,
 )
 
 chat_history = []
