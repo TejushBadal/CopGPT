@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 # Now you can access the environment variables using os.environ
 os.environ["OPENAI_API_KEY"] = os.environ.get('SECRET_KEY')
+
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
 PERSIST = False
 
@@ -27,17 +28,16 @@ if PERSIST and os.path.exists("persist"):
   vectorstore = Chroma(persist_directory="persist", embedding_function=OpenAIEmbeddings())
   index = VectorStoreIndexWrapper(vectorstore=vectorstore)
 else:
-  loader = TextLoader("test.txt") # Use this line if you only need data.txt
-  #loader = DirectoryLoader("data/")
+  #loader = TextLoader("data/data.txt") # Use this line if you only need data.txt
+  loader = DirectoryLoader("test.txt")
   if PERSIST:
     index = VectorstoreIndexCreator(vectorstore_kwargs={"persist_directory":"persist"}).from_loaders([loader])
   else:
     index = VectorstoreIndexCreator().from_loaders([loader])
 
 chain = ConversationalRetrievalChain.from_llm(
-                                              llm=ChatOpenAI(model="gpt-3.5-turbo"),
-                                              retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
-                                              verbose=True,
+  llm=ChatOpenAI(model="gpt-3.5-turbo"),
+  retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1})
 )
 
 chat_history = []
