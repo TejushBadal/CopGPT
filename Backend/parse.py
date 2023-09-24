@@ -10,7 +10,6 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
-
 from dotenv import load_dotenv
 # Load the .env file
 load_dotenv()
