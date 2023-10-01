@@ -38,18 +38,10 @@ vectorstore = Chroma.from_documents(documents, embeddings)
 qa = ConversationalRetrievalChain.from_llm(OpenAI(temperature=0.5,), vectorstore.as_retriever())
 
 #this takes the user input and creates the chat history
-chat_history = []
-query = None
-while True:
-  if not query:
-    query = input("Prompt:")
-  if query in ['quit', 'q', 'exit']:
-    sys.exit()
-  result = qa({"question": query, "chat_history": chat_history})
-  
-  print(result['answer'])
 
-  chat_history += [(query, result['answer'])]
+def getChat(chat_history, query):
 
-  query = None
-
+    result = qa({"question": query, "chat_history": chat_history})
+    
+    #print(result['answer'])
+    return result['answer']

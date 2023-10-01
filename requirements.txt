@@ -8,3 +8,5 @@ unstructured
 nltk
 markdown
 fastapi[all]
+uvicorn
+pydantic
