@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import '../App.css';
 import {postQuery } from "../requests";
 import { getHistory, addToHistory, clearHistory } from "../storage";
@@ -65,54 +65,69 @@ const Home = () => {
   
     return (
       <>
-       <HeaderBar />
-      <div style={{backgroundColor: 'purple', 
+    <header style={{ backgroundColor: '#e8a87c', color: 'white', padding: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <button
+        style={{padding: '10px 20px',
+                fontSize: '20px',
+                borderRadius: '5px',
+                backgroundColor: '#85dcba',
+                color: 'purple',
+                border: 'none',
+                marginRight: '550px',
+                fontFamily: 'Fantasy'}}
+        onClick={() => {clearHistory();setResponse('');}}
+      >New Chat</button>
+
+      <h1 style={{ textAlign: 'center', margin: '0', fontSize: '50px', color: '#249ea0', fontFamily: 'Fantasy'}}><strong>Cop GPT</strong></h1>
+
+      <a href="/about">  
+      <button
+        style={{padding: '10px 20px',
+                fontSize: '20px',
+                borderRadius: '5px',
+                backgroundColor: '#85dcba',
+                color: 'purple',
+                border: 'none',
+                marginLeft: '550px',
+                fontFamily: 'Fantasy'}}>About Tejush</button></a>
+    </header>
+
+      <div style={{backgroundColor: '#85dcba', 
                   height: '100vh', 
                   display: 'flex', 
                   flexDirection: 'column', 
                   alignItems: 'center', 
                   justifyContent: 'center' }}>
-            <div style={{ textAlign: 'center', 
-                          color: 'white',
-                          marginBottom: '50px'}}>
-              <h1>Welcome to CopGPT</h1>
-              <button style={{padding: '10px 20px',
-                                        fontSize: '18px',
-                                        borderRadius: '5px', 
-                                        backgroundColor: 'white', 
-                                        color: 'purple', 
-                                        border: '1px solid white' }}
-                     onClick={() => {clearHistory(); setResponse('')}}>New Chat</button>
-            </div><br/> <br/><br/>
-  
+            <br/> <br/><br/>
               <h1>
                 {Response}
-  
               </h1>
   
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <input
                       style={{padding: '10px', 
                               fontSize: '18px', 
-                              borderRadius: '5px', 
+                              borderRadius: '5px',
+                              border: 'none',
                               marginRight: '10px' }}
                       type="text"
                       placeholder="Ask a Question"
+                      size={50}
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleInputKeyPress}/>
                         <button style={{padding: '10px 20px',
                                         fontSize: '18px',
                                         borderRadius: '5px', 
-                                        backgroundColor: 'white', 
-                                        color: 'purple', 
-                                        border: '1px solid white' }}
-                                onClick={ () => {postQueryWrapper()}} 
-                        >Enter</button>
+                                        backgroundColor: '#e8a87c',
+                                        color: 'purple',
+                                        fontFamily: 'Fantasy', 
+                                        border: 'none' }}
+                                onClick={ () => {postQueryWrapper()}} >Enter</button>
           </div>
         </div>
     </>
-    );
+    ); // end return 
 }
 
 export default Home

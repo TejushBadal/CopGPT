@@ -4,11 +4,10 @@ import AboutUs from "./components/AboutUs";
 
 function App() {
   return (<Router>
-    <Routes>
-          
-    <Route path="/" element={<Home/>}></Route>
-    <Route path="/about" element={<AboutUs/>}></Route>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/about" element={<AboutUs/>}></Route>
+      </Routes>
    </Router>
  );
 }
