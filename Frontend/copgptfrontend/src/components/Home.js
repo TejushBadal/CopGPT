@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import '../App.css';
 import {postQuery } from "../requests";
 import { getHistory, addToHistory, clearHistory } from "../storage";
+import HeaderBar from './HeaderBar';
 
 const Home = () => {
     const [inputValue, setInputValue] = useState("");
@@ -65,6 +66,7 @@ const Home = () => {
   
     return (
       <>
+       <HeaderBar />
       <div style={{backgroundColor: 'purple', 
                   height: '100vh', 
                   display: 'flex', 
@@ -75,7 +77,7 @@ const Home = () => {
                           color: 'white',
                           marginBottom: '50px'}}>
               <h1>Welcome to CopGPT</h1>
-              <button onClick={() => {clearHistory(); setResponse('')}}>CLS</button>
+              <button onClick={() => {clearHistory(); setResponse('')}}>New Chat</button>
             </div><br/> <br/><br/>
   
               <h1>

@@ -7,16 +7,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.llms import OpenAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.document_loaders import UnstructuredMarkdownLoader
-'''
-from langchain.document_loaders import TextLoader
-from langchain.document_loaders import DirectoryLoader
-from langchain.text_splitter import NLTKTextSplitter
-from langchain.memory import ConversationBufferMemory
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts.prompt import PromptTemplate
-import nltk
-nltk.download('punkt')
-'''
+
 
 from dotenv import load_dotenv
 #create openai key
