@@ -14,7 +14,6 @@ const Home = () => {
         postQueryWrapper();
         }
     }
-  
     //
     const postQueryWrapper = () => {  // this function calls the query post and clears the input line on enter
       setResponse(<>
@@ -77,7 +76,13 @@ const Home = () => {
                           color: 'white',
                           marginBottom: '50px'}}>
               <h1>Welcome to CopGPT</h1>
-              <button onClick={() => {clearHistory(); setResponse('')}}>New Chat</button>
+              <button style={{padding: '10px 20px',
+                                        fontSize: '18px',
+                                        borderRadius: '5px', 
+                                        backgroundColor: 'white', 
+                                        color: 'purple', 
+                                        border: '1px solid white' }}
+                     onClick={() => {clearHistory(); setResponse('')}}>New Chat</button>
             </div><br/> <br/><br/>
   
               <h1>

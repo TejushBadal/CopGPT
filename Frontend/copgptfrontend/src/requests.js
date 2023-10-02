@@ -15,7 +15,7 @@ export async function postQuery(body, callback) {
                                                      body: JSON.stringify(body)
                                                     });
     const ResponseJSON = await RESPONSE.json();
-    //callback(ResponseJSON['response']); // the callback is a function you pass over to postQuery to be called with response as parameter
+    //callback(ResponseJSON['response']); // the callback is a function you pass to another function as a parameter to be called when that other function is complete
     addToHistory(body['Input'], ResponseJSON['response']);
     callback()
 
