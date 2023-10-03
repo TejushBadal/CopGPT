@@ -16,6 +16,14 @@ const Home = () => {
         postQueryWrapper();
         }
     }
+    //keep the scroll bar at the bottom of the chat
+    function ChatBox() {
+      const chatBoxRef = useRef(null);
+    
+      useEffect(() => {
+        // Scroll to the bottom of the chat box when it updates
+        if (chatBoxRef.current) {
+          chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;}}, [Response]);}
     //
     const postQueryWrapper = () => {  // this function calls the query post and clears the input line on enter
       setResponse(<>
