@@ -50,3 +50,30 @@ border-bottom-color: transparent;
   animation-iteration-count:  infinite;
   animation-timing-function: linear; 
 }
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.chat-message {
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+  word-wrap: break-word;
+  margin: 5px;
+}
+
+.chat-message-right {
+  align-self: flex-end;
+  background-color: #e8a87c;
+  color: black;
+}
+
+.chat-message-left {
+  align-self: flex-start;
+  background-color: #e8a87c;
+  color: purple;
+}
