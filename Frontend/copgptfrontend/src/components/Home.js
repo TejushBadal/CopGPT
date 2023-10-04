@@ -96,7 +96,7 @@ const Home = () => {
 
       <h1 style={{ textAlign: 'center', margin: '0', fontSize: '50px', color: '#249ea0', fontFamily: 'Fantasy'}}><strong>Cop GPT</strong></h1>
 
-      <a href="/about">  
+      <a href="https://www.linkedin.com/in/tejush-badal-3878981aa/">  
       <button
         style={{padding: '10px 20px',
                 fontSize: '20px',
@@ -105,7 +105,7 @@ const Home = () => {
                 color: 'purple',
                 border: 'none',
                 marginLeft: '650px',
-                fontFamily: 'Fantasy'}}>About Tejush</button></a>
+                fontFamily: 'Fantasy'}}>Linkedin</button></a>
     </header>
 
     {/* this is the start of the scroll box */}
@@ -129,7 +129,7 @@ const Home = () => {
                  border: 'none',
                  marginRight: '10px'}}
           type="text"
-          placeholder="Ask a Question"
+          placeholder="Ask a question!"
           size={50}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
