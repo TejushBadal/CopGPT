@@ -7,6 +7,7 @@ import ScrollBox from "./scrollBox";
 
 window.alert("This is a personal project and NOT LEGAL ADVICE and should not be considered as such. For any legal questions please contact a qualified lawyer. (dont sue me im broke)")
 const Home = () => {
+    const divRef = useRef(null);
     const [inputValue, setInputValue] = useState("");
     const [Response, setResponse] = useState("");
     
@@ -17,18 +18,17 @@ const Home = () => {
         }
     }
     //keep the scroll bar at the bottom of the chat
-    function ChatBox() {
-      const chatBoxRef = useRef(null);
+    useEffect(() => {
+      if (divRef.current) {
+        divRef.current.scrollTop = divRef.current.scrollHeight;
+      }
+    }, [Response]); 
+
     
-      useEffect(() => {
-        // Scroll to the bottom of the chat box when it updates
-        if (chatBoxRef.current) {
-          chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;}}, [Response]);}
     //
     const postQueryWrapper = () => {  // this function calls the query post and clears the input line on enter
       setResponse(<>
       <div class="load"></div>
-      <br/> Asking about: {inputValue}
       </>)
       
       postQuery({
@@ -91,7 +91,7 @@ const Home = () => {
                 border: 'none',
                 marginRight: '650px',
                 fontFamily: 'Fantasy'}}
-        onClick={() => {clearHistory();setResponse('');}}
+        onClick={() => {clearHistory();setResponse( <h2 style={{color: 'purple', fontSize: '40px'}}><strong>Ask any question about a police interaction in Canada, the more specific the better!</strong></h2>);}}
       >New Chat</button>
 
       <h1 style={{ textAlign: 'center', margin: '0', fontSize: '50px', color: '#249ea0', fontFamily: 'Fantasy'}}><strong>Cop GPT</strong></h1>
@@ -109,14 +109,18 @@ const Home = () => {
     </header>
 
     {/* this is the start of the scroll box */}
-    <div style={{ backgroundColor: '#85dcba', height: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ backgroundColor: '#85dcba', height: '86.85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
         {/* Chat Box */}
-        <div style={{ width: '600px', maxHeight: '400px', overflowY: 'scroll', border: 'none', padding: '10px' }}>
+        <div ref={divRef}
+            class="example ::-webkit-scrollbar"
+            style={{ width: '1200px', maxHeight: '600px', overflowY: 'scroll', border: 'none', padding: '10px', backgroundColor: '#249ea0', borderRadius: '10px' }}>
             <p>{Response}</p>
         </div>
 
-        {/* Input and Enter Button */}
+
+
+      {/* Input and Enter Button */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '80px' }}>
         <input
           style={{padding: '10px',

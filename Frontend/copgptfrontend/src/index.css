@@ -77,3 +77,8 @@ border-bottom-color: transparent;
   background-color: #e8a87c;
   color: purple;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
