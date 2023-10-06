@@ -10,4 +10,4 @@ markdown
 fastapi[all]
 uvicorn
 pydantic
-dotenv
+python-dotenv
