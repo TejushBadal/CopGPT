@@ -16,7 +16,7 @@ load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.environ.get('SECRET_KEY')
 
 #load in documents
-dataPath = "C:\\Users\\tejus\\Documents\\GitHub\\CopGPT\\Backend\\data\\police_handbook.md"
+dataPath = "C:\\Users\\tejush badal\\Documents\\GitHub\\CopGPT\\Backend\\data\\police_handbook.md"
 loader = UnstructuredMarkdownLoader(dataPath)
 documents = loader.load()
 
